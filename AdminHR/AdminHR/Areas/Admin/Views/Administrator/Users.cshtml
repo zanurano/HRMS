@@ -1,0 +1,25 @@
+﻿@* <script src="~/assets/bundles/jquery/jquery-3.7.1.js"></script> *@
+<script src="~/js/administrator.js?@(DateTime.Now.Ticks)"></script>
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Users Data</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="dtTable"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function () {
+        model.init.users();
+    })
+</script>

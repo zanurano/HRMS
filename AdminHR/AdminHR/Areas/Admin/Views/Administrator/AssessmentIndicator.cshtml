@@ -1,0 +1,89 @@
+﻿@using CoreApp.Model.Administration
+<script>
+    model.prototype = {
+        assessmentIndicator: @Html.Raw(Json.Serialize(new AssessmentIndicator())),
+    }
+</script>
+<script src="~/js/administrator.js?@(DateTime.Now.Ticks)"></script>
+
+<div class="modal fade" id="modalAssessment" tabindex="-1" role="dialog" aria-labelledby="formModal"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formModal">Assessment Indicator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="" data-bind="with: model.data.assessmentIndicator">
+                    <div class="form-group">
+                        <label>Indicator Name</label>
+                        <input type="text" class="form-control" placeholder="Indicator Name" data-bind="value: Name" />
+                    </div>
+                    <div class="form-group">
+                        <label>Position</label>
+                        @Html.DropDownList("Position", new List<SelectListItem>
+                        {
+                        new SelectListItem { Text = "Director", Value = "DIRECTOR", Selected=true},
+                        new SelectListItem { Text = "Manager IT", Value = "MANAGER IT"},
+                        new SelectListItem { Text = "Manager Production", Value = "MANAGER PRODUCTION"},
+                        new SelectListItem { Text = "Admin Staff", Value = "ADMIN STAFF"},
+                        new SelectListItem { Text = "IT Staff", Value = "IT STAFF"},
+                        new SelectListItem { Text = "Security", Value = "SECURITY"}
+                        }, "Select Position", new { @class = "form-control", data_bind = "value: Position" })
+                    </div>
+                    <div class="form-group">
+                        <label>Quality Value</label>
+                        <input type="text" class="form-control" placeholder="Value" data-bind="value: QualityValue" />
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-warning btn-block" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <button id="btn-save" type="button" class="btn btn-primary btn-block waves-effect" data-bind="click: model.on.saveAssessment">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Assessment Indicator</h4>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modalAssessment" data-bind="click: model.on.addNewEducation">
+                            <i class="fas fa-plus"></i> Add New
+                        </button>
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="dtTable" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Position</th>
+                                        <th>Quality Value</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function () {
+        model.init.assessmentIndicator();
+    })
+</script>

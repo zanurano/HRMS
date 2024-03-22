@@ -1,0 +1,35 @@
+@keyframes colorchange {
+    0% {
+        background: #e9ecef
+    }
+
+    100% {
+        background: #ddd
+    }
+}
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.loading-shimmer {
+    animation: colorchange 1s infinite alternate-reverse;
+}
+
+.form-control.render-loading {
+    animation: colorchange 1s infinite alternate-reverse;
+}

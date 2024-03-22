@@ -1,0 +1,42 @@
+﻿@using CoreApp.Model.Employee
+<div class="modal fade" id="modalWorkExperience" tabindex="-1" role="dialog" aria-labelledby="formModal"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formModal">Work Experience</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" data-bind="with: model.data.employeeWorkExpreience">
+                <form class="">
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" class="form-control" placeholder="Full Name" data-bind="value: CompanyName" />
+                    </div>
+                    <div class="form-group">
+                        <label>Position</label>
+                        <input type="text" class="form-control" placeholder="Position" data-bind="value: Position" />
+                    </div>
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="text" class="form-control datepicker" data-bind="value: StartDate" required />
+                    </div>
+                    <div class="form-group">
+                        <label>End Date</label>
+                        <input type="text" class="form-control datepicker" data-bind="value: EndDate" required />
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-warning btn-block" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <button id="btn-save-workexperience" type="button" class="btn btn-primary btn-block" data-bind="click: model.on.saveWorkExperience">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

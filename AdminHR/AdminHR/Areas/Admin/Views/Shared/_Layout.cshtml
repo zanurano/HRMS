@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>HR Management System</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="~/assets/css/app.min.css">
+    <link rel="stylesheet" href="~/assets/bundles/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/assets/bundles/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="~/assets/bundles/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="~/assets/bundles/jquery-selectric/selectric.css">
+    <link rel="stylesheet" href="~/assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="~/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="~/assets/css/custom.css">
+    <link rel='shortcut icon' type='image/x-icon' href='~/assets/img/favicon.ico' />
+
+    <script src="~/assets/bundles/knockoutjs/knockout-3.4.2.js"></script>
+    <script src="~/assets/bundles/knockoutjs/knockout-helper.js"></script>
+    <script src="~/assets/bundles/knockoutjs/knockout.mapping-2.4.1.js"></script>
+    <script src="~/lib/tools/convertion.js"></script>
+    @* <script src="~/assets/bundles/knockout-kendo/knockout-kendo.min.js"></script> *@
+    <script src="~/assets/bundles/jquery/jquery-3.7.1.js"></script>
+    <script>
+        var model = {
+            app: {}, action: {}, get: {}, init: {}, is: {}, data: {}, render: {}, on: {}, map: {}, list: {},
+        }
+    </script>
+</head>
+
+<body>
+    <div class="loader"></div>
+    <app>
+        <div class="main-wrapper main-wrapper-1">
+                @await Html.PartialAsync("_Navbar.cshtml")
+                @await Html.PartialAsync("_Sidebar.cshtml")
+                <div class="main-content">
+                    @RenderBody()
+                @await Html.PartialAsync("_SettingSidebar.cshtml")
+                </div>
+                @await Html.PartialAsync("_Footer.cshtml")
+        </div>
+    </app>
+
+    <!-- General JS Scripts -->
+    <script src="~/assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="~/assets/bundles/apexcharts/apexcharts.min.js"></script>
+    <script src="~/assets/bundles/sweetalert/sweetalert.min.js"></script>
+    <!-- Page Specific JS File -->
+    @* <script src="~/assets/js/page/index.js"></script> *@
+    <!-- Template JS File -->
+    <script src="~/assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="~/assets/js/custom.js"></script>
+    <!-- JS Libraies -->
+    <script src="~/assets/bundles/datatables/datatables.min.js"></script>
+    <script src="~/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/assets/bundles/bootstrap-daterangepicker/daterangepicker.js"></script>>
+    <script src="~/assets/bundles/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="~/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+    <script src="~/assets/bundles/select2/dist/js/select2.full.min.js"></script>
+    <script src="~/assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
+    <script src="~/assets/bundles/fullcalendar/fullcalendar.min.js"></script>
+
+    @* <script src="~/assets/bundles/jquery/jquery-3.7.1.js"></script> *@
+    <!-- Page Specific JS File -->
+    <script src="~/assets/js/page/datatables.js"></script>
+    <!-- Binding model -->
+    <script>
+        ko.applyBindings(model);
+    </script>
+    @* @await RenderSectionAsync("Scripts", required: false) *@
+</body>
+</html>

@@ -1,0 +1,205 @@
+﻿@using CoreApp.Model.Employee
+<!-- ko if: model.is.loading() -->
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-6">
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6">
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 mb-2">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" class="form-control render-loading" disabled>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /ko -->
+<!-- ko ifnot: model.is.loading() -->
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-6">
+        @if ((bool)ViewData["IsEdit"]!)
+        {
+            <div class="form-group">
+                <label>EmployeeID</label>
+                @* <input type="text" class="form-control" data-bind="value: EmployeeID" disabled /> *@
+                <label class="form-control" data-bind="text: '@ViewData["EmployeeID"]'"></label>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                <label class="control-label">EmployeeID</label>
+                <input type="text" class="form-control" data-bind="value: EmployeeID" required />
+            </div>
+        }
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-control" data-bind="value: FullName" required />
+        </div>
+        <div class="form-group">
+            <label>Relgion</label>
+            @* @Html.DropDownList("Religion",
+            new SelectList((IEnumerable<string>?)listReligon),
+            "Select Religion",
+            new { @class = "form-control", data_bind = "value: Religion" }) *@
+            @Html.DropDownList("Religion",
+                     Html.GetEnumSelectList<Religion>(),
+                     new { @class = "form-control", data_bind = "value: Religion" })
+        </div>
+        <div class="form-group">
+            <label>BirthDate</label>
+            @* <input type="text" class="form-control datepicker" data-bind="value: BirthDate"> *@
+            <input type="text" class="form-control datepicker" data-bind="value: BirthDate" required />
+        </div>
+        <div class="form-group">
+            <label>BirthPlace</label>
+            <input type="text" class="form-control" data-bind="value: BirthPlace" required />
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            @* @Html.DropDownList("Gender",
+            new SelectList(Enum.GetValues(typeof(Gender))),
+            "Select Gender",
+            new { @class = "form-control", data_bind = "value: Gender" }) *@
+            @Html.DropDownList("Gender",
+                     Html.GetEnumSelectList<Gender>(),
+                     "Select Gender", new { @class = "form-control", data_bind = "value: Gender" })
+        </div>
+        <div class="form-group">
+            <label>Marital Status</label>
+            @* @Html.DropDownList("Select Marital Status",
+            new SelectList(Enum.GetValues(typeof(MaritalStatus))),
+            new { @class = "form-control", data_bind = "value: MaritalStatus" }) *@
+            @Html.DropDownList("MaritalStatus",
+                     Html.GetEnumSelectList<MaritalStatus>(),
+                     "Select MaritalStatus", new { @class = "form-control", data_bind = "value: MaritalStatus" })
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6">
+        <div class="form-group">
+            <label>NIK</label>
+            <input type="text" class="form-control" data-bind="value: NIK" />
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <textarea class="form-control" rows="3" data-bind="value: Address"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" class="form-control" data-bind="value: Phone" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" data-bind="value: Email" />
+        </div>
+        <div class="form-group">
+            <label>Current Position</label>
+            @* <input type="text" class="form-control" data-bind="value: CurrentPosition" /> *@
+            @Html.DropDownList("Position", new List<SelectListItem>
+            {
+            new SelectListItem { Text = "Director", Value = "DIRECTOR", Selected=true},
+            new SelectListItem { Text = "Manager IT", Value = "MANAGER IT"},
+            new SelectListItem { Text = "Manager Production", Value = "MANAGER PRODUCTION"},
+            new SelectListItem { Text = "Admin Staff", Value = "ADMIN STAFF"},
+            new SelectListItem { Text = "IT Staff", Value = "IT STAFF"},
+            new SelectListItem { Text = "Security", Value = "SECURITY"}
+            }, "Select Position", new { @class = "form-control", data_bind = "value: CurrentPosition" })
+        </div>
+    </div>
+    <div class="col-6 col-md-6 col-lg-6">
+        <button id="btn-back" class="btn btn-warning btn-lg btn-block" data-bind="click: model.on.deleteResume">Delete</button>
+    </div>
+    <div class="col-6 col-md-6 col-lg-6">
+        <button id="btn-save-resume" class="btn btn-primary btn-lg btn-block" data-bind="click: model.on.saveResume">Save</button>
+    </div>
+</div>
+<!-- /ko -->

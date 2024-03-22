@@ -1,0 +1,43 @@
+﻿<script>
+    let urlAction = '@Url.Action("Detail", "Employee")';
+</script>
+<script src="~/js/employee.js?@(DateTime.Now.Ticks)"></script>
+
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>@ViewData["Title"]</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <button class="btn btn-primary mb-3" data-bind="click: model.on.create">Create New</button>
+                            <table class="table table-striped" id="tblEmployee">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Full Name</th>
+                                        <th>Religion</th>
+                                        <th>Gender</th>
+                                        <th>Birth Date</th>
+                                        <th>Birth Place</th>
+                                        <th>Current Position</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function () {
+        model.init.employee();
+    })
+</script>
