@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System.Net;
 using CoreApp.Model.Attendance;
+using CoreApp.Lib.Helper;
 
 namespace APIService.Controllers
 {
@@ -88,7 +89,8 @@ namespace APIService.Controllers
         public async Task<IActionResult> EmployeeInsert(AssessmentIndicator assessmentIndicator)
         {
             try
-            {;
+            {
+                assessmentIndicator.Id = GenerateAny.GenerateIdByDateTime(assessmentIndicator.Id);
                 _dbContext.AssessmentIndicators.Add(assessmentIndicator);
                 await _dbContext.SaveChangesAsync();
             }
@@ -144,6 +146,7 @@ namespace APIService.Controllers
         {
             try
             {
+                param.Id = GenerateAny.GenerateIdByDateTime(param.Id);
                 _dbContext.Holidays.Add(param);
                 await _dbContext.SaveChangesAsync();
             }
@@ -152,7 +155,7 @@ namespace APIService.Controllers
                 throw new Exception(err.Message);
             }
 
-            return Ok("Data has been saved");
+            return ApiResult<object>.Ok(param, "Data has been saved");
         }
 
         [HttpPost("Holiday/Update")]
@@ -168,7 +171,7 @@ namespace APIService.Controllers
                 throw new Exception(err.Message);
             }
 
-            return Ok("Data has been updated");
+            return ApiResult<object>.Ok(param, "Data has been updated");
         }
 
         [HttpPost("Holiday/Delete")]

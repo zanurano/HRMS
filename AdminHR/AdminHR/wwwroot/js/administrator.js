@@ -1,6 +1,6 @@
 ﻿model.data.assessmentIndicator = ko.observable(ko.mapping.toJS(model.prototype.assessmentIndicator));
 
-model.is.newAssessment = ko.observable
+model.is.newAssessment = ko.observable();
 
 model.init.users = function () {
         $('#dtTable').DataTable();

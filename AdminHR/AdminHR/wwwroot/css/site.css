@@ -33,3 +33,7 @@ body {
 .form-control.render-loading {
     animation: colorchange 1s infinite alternate-reverse;
 }
+
+.input-uppercase {
+    text-transform: uppercase;
+}
