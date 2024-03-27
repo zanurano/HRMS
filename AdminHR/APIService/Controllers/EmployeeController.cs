@@ -1,8 +1,10 @@
 ﻿using CoreApp.DAL;
+using CoreApp.Lib;
 using CoreApp.Lib.Helper;
 using CoreApp.Model.Employee;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -52,7 +54,8 @@ namespace APIService.Controllers
                 await _dbContext.SaveChangesAsync();
             } catch (Exception err)
             {
-                throw new Exception(err.Message);
+                //throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
 
             return Ok("Employee has been saved");
@@ -69,7 +72,7 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
             
             return Ok("Employee has been updated");
@@ -85,7 +88,7 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
             
             return Ok("Employee has been deleted");
@@ -127,7 +130,7 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
 
             return Ok("Data has been saved");
@@ -144,7 +147,7 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
 
             return Ok("Data has been updated");
@@ -160,7 +163,7 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
 
             return Ok("Data has been deleted");
@@ -201,7 +204,7 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
 
             return Ok("Data has been saved");
@@ -217,7 +220,7 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
 
             return Ok("Data has been updated");
@@ -233,7 +236,8 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                //throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
 
             return Ok("Data has been deleted");
@@ -273,7 +277,8 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                //throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
 
             return Ok("Data has been saved");
@@ -290,7 +295,8 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                //throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
 
             return Ok("Data has been updated");
@@ -306,7 +312,8 @@ namespace APIService.Controllers
             }
             catch (Exception err)
             {
-                throw new Exception(err.Message);
+                //throw new Exception(err.Message);
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error :\n{err.Message}");
             }
 
             return Ok("Data has been deleted");

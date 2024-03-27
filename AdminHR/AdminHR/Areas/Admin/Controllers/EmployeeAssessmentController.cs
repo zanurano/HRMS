@@ -33,7 +33,7 @@ namespace AdminHR.Areas.Admin.Controllers
             return View();
         }
 
-        [Route("/Admin/EmployeeAssessment/AssessmentIndicatorGets")]
+        [Route("/Admin/EmployeeAssessment/AssessmentIndicator/Gets")]
         public async Task<IActionResult> AssessmentIndicatorGets()
         {
             try
@@ -44,6 +44,24 @@ namespace AdminHR.Areas.Admin.Controllers
 
                 var result = JsonConvert.DeserializeObject<List<EmployeeAssessment>>(response.Content);
                 return ApiResult<List<EmployeeAssessment>?>.Ok(result, result!.Count);
+            }
+            catch (Exception e)
+            {
+                return ApiResult<object>.Error(HttpStatusCode.BadRequest, $"Error service :\n{e.Message}");
+            }
+        }
+
+        [Route("/Admin/AssessmentIndicator/Getby/Position/{Id}")]
+        public async Task<IActionResult> AssessmentIndicatorGet(string Id)
+        {
+            try
+            {
+                var client = new Client(Configuration);
+                var request = new Request($"api/AssessmentIndicator/GetBy/Position/{Id}", RestSharp.Method.GET);
+                var response = client.Execute(request);
+
+                var result = JsonConvert.DeserializeObject<EmployeeAssessment>(response.Content);
+                return ApiResult<EmployeeAssessment?>.Ok(result);
             }
             catch (Exception e)
             {

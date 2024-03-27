@@ -7,6 +7,7 @@
     <!-- General CSS Files -->
     <link rel="stylesheet" href="~/assets/css/app.min.css">
     <link rel="stylesheet" href="~/assets/bundles/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/assets/bundles/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="~/assets/bundles/bootstrap-daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="~/assets/bundles/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="~/assets/bundles/jquery-selectric/selectric.css">
@@ -23,12 +24,17 @@
     <script src="~/assets/bundles/knockoutjs/knockout-3.4.2.js"></script>
     <script src="~/assets/bundles/knockoutjs/knockout-helper.js"></script>
     <script src="~/assets/bundles/knockoutjs/knockout.mapping-2.4.1.js"></script>
-    <script src="~/lib/tools/convertion.js"></script>
-    @* <script src="~/assets/bundles/knockout-kendo/knockout-kendo.min.js"></script> *@
+   
+    <!-- <script src="~/assets/bundles/knockout-kendo/knockout-kendo.min.js"></script> -->
+
     <script src="~/assets/bundles/jquery/jquery-3.7.1.js"></script>
+    <!-- Tools Libraries -->
+    <script src="~/lib/tools/convertion.js?@(DateTime.Now.Ticks)"></script>
+    <script src="~/lib/tools/datetime.js?@(DateTime.Now.Ticks)"></script>
+    
     <script>
         var model = {
-            app: {}, action: {}, get: {}, init: {}, is: {}, data: {}, render: {}, on: {}, map: {}, list: {},
+            app: {}, action: {}, get: {}, init: {}, is: {}, data: {}, render: {}, on: {}, map: {}, list: {}, text: {},
         }
     </script>
 </head>
@@ -62,14 +68,16 @@
     <script src="~/assets/bundles/datatables/datatables.min.js"></script>
     <script src="~/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
-    <script src="~/assets/bundles/bootstrap-daterangepicker/daterangepicker.js"></script>>
+    <script src="~/assets/bundles/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/assets/bundles/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="~/assets/bundles/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
     <script src="~/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
     <script src="~/assets/bundles/select2/dist/js/select2.full.min.js"></script>
     <script src="~/assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
     <script src="~/assets/bundles/fullcalendar/fullcalendar.min.js"></script>
     <script src="~/assets/bundles/moment/moment.min.js"></script>
-    @* <script src="~/assets/bundles/jquery/jquery-3.7.1.js"></script> *@
+    <!-- <script src="~/assets/bundles/jquery/jquery-3.7.1.js"></script> -->
+
     <!-- Page Specific JS File -->
     <script src="~/assets/js/page/datatables.js"></script>
     <!-- Binding model -->

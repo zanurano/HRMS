@@ -264,7 +264,3 @@ model.on.saveWorkExperience = () => {
         });
     }
 }
-
-//$('#tblFamily tbody').on('click', 'a', function () {
-//    alert("oke")
-//})

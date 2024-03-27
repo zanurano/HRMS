@@ -1,4 +1,6 @@
-﻿<section class="section">
+﻿<script src="~/js/employee_assessment.js?@(DateTime.Now.Ticks)"></script>
+
+<section class="section">
     <div class="section-body">
         <div class="row">
             <div class="col-12">
@@ -29,3 +31,9 @@
         </div>
     </div>
 </section>
+
+<script>
+    $(function () {
+        model.init.detail();
+    })
+</script>

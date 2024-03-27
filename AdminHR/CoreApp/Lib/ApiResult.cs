@@ -70,6 +70,11 @@ namespace CoreApp.Lib
             js.StatusCode = (int)Res.StatusCode;
             return js.ExecuteResultAsync(context);
         }
+
+        public static IActionResult Ok(IActionResult res)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public static class ApiResult

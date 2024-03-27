@@ -44,3 +44,17 @@ model.init.employee = function () {
         ],
     });
 }
+
+model.init.detail = () => {
+    let pathname = window.location.pathname;
+    console.log("param:", pathname.split("/"))
+    let urlSplit = pathname.split("/");
+    let param = urlSplit[urlSplit.length - 1];
+    $.get("/Admin/Employee/Get/"+param, function (res) {
+        console.log("res:", res);
+
+        $.get("/Admin/AssessmentIndicator/GetBy/Position/" + res.CurrentPosition, function (r) {
+            console.log("result:", r)
+        });
+    });
+}

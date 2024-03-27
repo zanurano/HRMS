@@ -25,6 +25,21 @@ namespace APIService.Controllers
             return list;
         }
 
+        [HttpGet("Get/{id}")]
+        public async Task<ActionResult<EmployeeAssessment>> Get(string id)
+        {
+            if (_dbContext.EmployeeAssessments == null)
+            {
+                return NotFound();
+            }
+            var emp = _dbContext.EmployeeAssessments.Where(x => x.EmployeeID == id).FirstOrDefault();
+            if (emp == null)
+            {
+                return NotFound();
+            }
+            return emp;
+        }
+
         [HttpPost("Insert")]
         public async Task<IActionResult> Insert(EmployeeAssessment param)
         {

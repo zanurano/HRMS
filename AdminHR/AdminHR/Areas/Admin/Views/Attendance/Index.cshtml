@@ -1,4 +1,56 @@
-﻿<section class="section">
+﻿@using CoreApp.Model.Attendance
+<script>
+    model.prototype = {
+        attendance: @Html.Raw(Json.Serialize(new Attendance())),
+    }
+</script>
+<script src="~/js/attendance.js?@(DateTime.Now.Ticks)"></script>
+
+<div class="modal fade" id="modalAttendance" tabindex="-1" role="dialog" aria-labelledby="formModal"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formModal">Assessment Indicator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="" data-bind="with: model.data.attendance">
+                    <div class="form-group">
+                        <label>Employee ID [Name]</label>
+                        @* <label class="form-control" data-bind="text: model.text.Name"></label> *@
+                        <input type="text" class="form-control" placeholder="Value" data-bind="value: EmployeeID" />
+                    </div>                    
+                    <div class="form-group">
+                        <label>Date ClockIn</label>
+                        <input id="clockIn" type="text" class="form-control datetimepicker" placeholder="Value" data-bind="value: ClockIn" />
+                    </div>
+                    <div class="form-group">
+                        <label>Date ClockOut</label>
+                        <input id="clockOut" type="text" class="form-control datetimepicker" placeholder="Value" data-bind="value: ClockOut" />
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        @* <label class="form-control" data-bind="text: model.text.DateClock"></label> *@
+                        <input type="text" class="form-control" placeholder="Value" data-bind="value: Description" />
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-warning btn-block" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <button id="btn-save" type="button" class="btn btn-primary btn-block waves-effect" data-bind="click: model.on.saveAttendance">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section">
     <div class="section-body">
         <div class="row">
             <div class="col-12">
@@ -6,9 +58,37 @@
                     <div class="card-header">
                         <h4>Employee Attendance</h4>
                     </div>
-                    <div class="card-body"></div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modalAttendance" data-bind="click: model.on.addNewAttendance">
+                            <i class="fas fa-plus"></i> Add New
+                        </button>
+                        <div data-bind="visible: model.is.loading">
+                            <div class="d-flex justify-content-center">
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="dtTable" style="width: 100%">
+                                @* <thead>
+                                    <tr>
+                                        <th>EmployeeID</th>
+                                        <th>EmployeeName</th>
+                                    </tr>
+                                </thead> *@
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    $(function () {
+        model.init.attendance();
+    })
+</script>
