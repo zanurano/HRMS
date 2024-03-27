@@ -86,13 +86,13 @@ namespace APIService.Controllers
         }
 
         [HttpGet("AssessmentIndicator/Getby/Position/{id}")]
-        public async Task<ActionResult<AssessmentIndicator>> Get(string id)
+        public async Task<ActionResult<List<AssessmentIndicator>>> Get(string id)
         {
             if (_dbContext.AssessmentIndicators == null)
             {
                 return NotFound();
             }
-            var emp = _dbContext.AssessmentIndicators.Where(x => x.Position == id).FirstOrDefault();
+            var emp = _dbContext.AssessmentIndicators.Where(x => x.Position == id).ToList();
             if (emp == null)
             {
                 return NotFound();

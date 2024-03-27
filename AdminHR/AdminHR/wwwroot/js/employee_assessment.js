@@ -53,7 +53,7 @@ model.init.detail = () => {
     $.get("/Admin/Employee/Get/"+param, function (res) {
         console.log("res:", res);
 
-        $.get("/Admin/AssessmentIndicator/GetBy/Position/" + res.CurrentPosition, function (r) {
+        $.get("/Admin/AssessmentIndicator/GetBy/Position/" + res.Data.CurrentPosition, function (r) {
             console.log("result:", r)
         });
     });

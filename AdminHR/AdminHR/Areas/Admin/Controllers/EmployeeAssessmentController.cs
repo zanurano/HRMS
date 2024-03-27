@@ -57,11 +57,11 @@ namespace AdminHR.Areas.Admin.Controllers
             try
             {
                 var client = new Client(Configuration);
-                var request = new Request($"api/AssessmentIndicator/GetBy/Position/{Id}", RestSharp.Method.GET);
+                var request = new Request($"api/Administration/AssessmentIndicator/GetBy/Position/{Id}", RestSharp.Method.GET);
                 var response = client.Execute(request);
 
-                var result = JsonConvert.DeserializeObject<EmployeeAssessment>(response.Content);
-                return ApiResult<EmployeeAssessment?>.Ok(result);
+                var result = JsonConvert.DeserializeObject<List<EmployeeAssessment>>(response.Content);
+                return ApiResult<List<EmployeeAssessment>?>.Ok(result);
             }
             catch (Exception e)
             {
